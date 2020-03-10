@@ -49,7 +49,7 @@
                 </div>
                 <h4 class="edit-profile__username">serranoarevalo</h4>
             </header>
-            <form action="" class="edit-profile__form">
+            <form action="update_user.php" class="edit-profile__form">
                 <div class="form__row">
                     <label for="full-name" class="form__label">Name:</label>
                     <input id="full-name" type="text" class="form__input" />

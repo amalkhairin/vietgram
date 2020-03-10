@@ -1,3 +1,7 @@
+<?php
+    include_once("upload-modal.php");
+    include_once("db/get_all_users.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.html">
+            <a href="feed.php">
                 <img src="images/logo.png" />
             </a>
         </div>
@@ -22,7 +26,12 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
-                    <a href="explore.html" class="navigation__link">
+                    <button style="border:none; background-color:transparent" type="button" data-toggle="modal" data-target="#upload-modal-1">
+                        <i><img src="https://img.icons8.com/ios/26/000000/upload.png"></i>
+                    </button>
+                </li>
+                <li class="navigation__list-item">
+                    <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>
                 </li>
@@ -32,7 +41,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="profile.php" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>
@@ -41,45 +50,22 @@
     </nav>
     <main id="explore">
         <ul class="explore__users">
-            <li class="explore__user">
-                
-                <div class="explore__user-column">
-                    <img src="images/avatar.jpg" class="explore__avatar"/>
-                    <div class="explore__info">
-                        <span class="explore__username">inthetiger</span>
-                        <span class="explore__full-name">Lynn Park</span>
-                    </div>
-                </div>
-                <div class="explore__user-column">
-                    <button>Follow</button>
-                </div>
-            </li>
-            <li class="explore__user">
-                    
-                    <div class="explore__user-column">
-                        <img src="images/avatar.jpg" class="explore__avatar"/>
-                        <div class="explore__info">
-                            <span class="explore__username">inthetiger</span>
-                            <span class="explore__full-name">Lynn Park</span>
-                        </div>
-                    </div>
-                    <div class="explore__user-column">
-                        <button>Follow</button>
-                    </div>
-                </li>
-                <li class="explore__user">
-                        
-                        <div class="explore__user-column">
-                            <img src="images/avatar.jpg" class="explore__avatar"/>
-                            <div class="explore__info">
-                                <span class="explore__username">inthetiger</span>
-                                <span class="explore__full-name">Lynn Park</span>
-                            </div>
-                        </div>
-                        <div class="explore__user-column">
-                            <button>Follow</button>
-                        </div>
-                    </li>
+        <?php
+            foreach($userArray as $val){
+                echo "<li class='explore__user'>";
+                    echo "<div class='explore__user-column'>";
+                        echo "<img src='images/avatar.jpg' class='explore__avatar'/>";
+                        echo "<div class='explore__info'>";
+                            echo "<span class='explore__username'>$val[1]</span>";
+                            echo "<span class='explore__full-name'>$val[0]</span>";
+                        echo "</div>";
+                    echo "</div>";
+                    echo "<div class='explore__user-column'>";
+                        echo "<button>Follow</button>";
+                    echo "</div>";
+                echo "</li>";
+            }
+        ?>
         </ul>
     </main>
     <footer class="footer">

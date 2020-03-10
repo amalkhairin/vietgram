@@ -1,5 +1,6 @@
 <?php
     include_once('db/user.php');
+    include_once("upload-modal.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.html">
+            <a href="feed.php">
                 <img src="images/logo.png" />
             </a>
         </div>
@@ -27,7 +28,12 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
-                    <a href="explore.html" class="navigation__link">
+                    <button style="border:none; background-color:transparent" type="button" data-toggle="modal" data-target="#upload-modal-1">
+                        <i><img src="https://img.icons8.com/ios/26/000000/upload.png"></i>
+                    </button>
+                </li>
+                <li class="navigation__list-item">
+                    <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>
                 </li>
@@ -37,7 +43,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="profile.php" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>
@@ -75,58 +81,25 @@
             </div>
         </header>
         <section class="profile__photos">
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                            <i class="fa fa-heart"></i>
-                            486
-                        </span>
-                    <span class="overlay__item">
-                            <i class="fa fa-comment"></i>
-                            344
-                        </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                <i class="fa fa-heart"></i>
-                                486
-                            </span>
-                    <span class="overlay__item">
-                                <i class="fa fa-comment"></i>
-                                344
-                            </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                                    <i class="fa fa-heart"></i>
-                                    486
-                                </span>
-                    <span class="overlay__item">
-                                    <i class="fa fa-comment"></i>
-                                    344
-                                </span>
-                </div>
-            </div>
+            <?php
+                if($postArray != null){
+                    foreach($postArray as $val){
+                        echo "<div class='profile__photo'>";
+                           echo "<img style='width: fit-content;' src='upload/$val[2]'/>";
+                            echo "<div class='profile__photo-overlay'>";
+                               echo "<span class='overlay__item'>";
+                                   echo "<i class='fa fa-heart'></i>";
+                                   echo "$val[4]";
+                               echo "</span>";
+                               echo "<span class='overlay__item'>";
+                                   echo "<i class='fa fa-comment'></i>";
+                                   echo "344";
+                               echo "</span>";
+                           echo "</div>";
+                       echo "</div>";
+                    }
+                }
+            ?>
         </section>
     </main>
     <footer class="footer">

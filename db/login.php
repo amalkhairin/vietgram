@@ -9,7 +9,7 @@
 
     if($result->num_rows > 0){
         session_start();
-        $_SESSION["username"] = $username;
+        $_SESSION['username'] = $username;
         
         header('location: ../feed.php');
     } else {

@@ -1,3 +1,6 @@
+<?php
+    include_once('db/user.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,36 +50,36 @@
                 <div class="edit-profile__avatar-container">
                     <img src="images/avatar.jpg" class="edit-profile__avatar" />
                 </div>
-                <h4 class="edit-profile__username">serranoarevalo</h4>
+                <h4 class="edit-profile__username"><?php echo $user['username']; ?></h4>
             </header>
-            <form action="update_user.php" class="edit-profile__form">
+            <form action="db/update_user.php" method="POST" class="edit-profile__form">
                 <div class="form__row">
                     <label for="full-name" class="form__label">Name:</label>
-                    <input id="full-name" type="text" class="form__input" />
+                    <input id="full-name" name="full-name" type="text" class="form__input" value="<?php echo $user['name']?>"/>
                 </div>
                 <div class="form__row">
                     <label for="user-name" class="form__label">Username:</label>
-                    <input id="user-name" type="text" class="form__input" />
+                    <input id="user-name" name="user-name" type="text" class="form__input" value="<?php echo $user['username']?>" disabled/>
                 </div>
                 <div class="form__row">
                     <label for="website" class="form__label">Website:</label>
-                    <input id="website" type="url" class="form__input" />
+                    <input id="website" name="website" type="url" class="form__input" value="<?php echo $user['website'] ?>"/>
                 </div>
                 <div class="form__row">
                     <label for="bio" class="form__label">Bio:</label>
-                    <textarea id="bio"></textarea>
+                    <textarea id="bio" name="bio"><?php echo $user['bio'] ?></textarea>
                 </div>
                 <div class="form__row">
                     <label for="email" class="form__label">Email:</label>
-                    <input id="email" type="email" class="form__input" />
+                    <input id="email" name="email" type="email" class="form__input" value="<?php echo $user['email'] ?>"/>
                 </div>
                 <div class="form__row">
                     <label for="phone" class="form__label">Phone Number:</label>
-                    <input id="phone" type="tel" class="form__input" />
+                    <input id="phone" name="phone" type="tel" class="form__input" value="<?php echo $user['phone_number'] ?>"/>
                 </div>
                 <div class="form__row">
                     <label for="gender" class="form__label">Gender:</label>
-                    <select id="gender">
+                    <select id="gender" name="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="cant">Can't remember</option>

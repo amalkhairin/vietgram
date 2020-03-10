@@ -1,3 +1,6 @@
+<?php
+    include_once('db/user.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +51,8 @@
             </div>
             <div class="profile__column">
                 <div class="profile__title">
-                    <h3 class="profile__username">serranoarevalo</h3>
-                    <a href="edit-profile.html">Edit profile</a>
+                    <h3 class="profile__username"><?php echo $user['username']; ?></h3>
+                    <a href="edit-profile.php">Edit profile</a>
                     <i class="fa fa-cog fa-lg"></i>
                 </div>
                 <ul class="profile__stats">
@@ -65,11 +68,9 @@
                 </ul>
                 <p class="profile__bio">
                     <span class="profile__full-name">
-                        Nicolás Serrano Arévalo
-                    </span> Doing whatever and eating Pho Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Ducimus suscipit praesentium eveniet quibusdam ipsam omnis fugit. Tempore voluptates ratione recusandae
-                    natus illo perspiciatis suscipit, odio consequuntur quasi obcaecati minus! Omnis.
-                    <a href="#">serranoarevalo.com</a>
+                        <?php echo $user['name']; ?> <br>
+                    </span> <?php echo $user['bio'] ?>
+                    <a href="#"><?php echo $user['website']; ?></a>
                 </p>
             </div>
         </header>
